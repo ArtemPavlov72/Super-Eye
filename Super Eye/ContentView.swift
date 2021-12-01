@@ -10,6 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            MainView()
+                .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Главная")
+            }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Настройки")
+                }
                 
             
         }
