@@ -12,12 +12,12 @@ struct ContentView: View {
         TabView {
             MainView()
                 .tabItem {
-                    Image(systemName: "person.circle.fill")
+                    Image(systemName: "eyebrow")
                     Text("Главная")
             }
             SettingsView()
                 .tabItem {
-                    Image(systemName: "person.circle.fill")
+                    Image(systemName: "slider.vertical.3")
                     Text("Настройки")
                 }
                 
