@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ExercisesView: View {
-    var body: some View {
-        
-        
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                
+    @Environment(\.presentationMode) var presentationMode
     
+    var body: some View {
+        NavigationView {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                .toolbar {
+                    ToolbarItem {
+                        Button("Закончить зарядку") {
+                            presentationMode.wrappedValue.dismiss()
+                            
+                        }
+                    }
+                }
+        }
     }
 }
 
