@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var exercisesViewPresented = false
+    
     var body: some View {
-        Button(action: {}) {
-            Text("Начать зарядку")
-                .font(.title)
+        Button("Начать зарядку") {
+            exercisesViewPresented = true
         }
+        .fullScreenCover(isPresented: $exercisesViewPresented) {
+            ExercisesView()
+        }
+    
     }
 }
 

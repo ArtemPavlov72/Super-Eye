@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881474C4275A8387001C0AE7 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881474C3275A8387001C0AE7 /* ExercisesView.swift */; };
 		88218FB92757E29F00F5B693 /* Super_EyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218FB82757E29F00F5B693 /* Super_EyeApp.swift */; };
 		88218FBB2757E29F00F5B693 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218FBA2757E29F00F5B693 /* ContentView.swift */; };
 		88218FBD2757E2A200F5B693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88218FBC2757E2A200F5B693 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		881474C3275A8387001C0AE7 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		88218FB52757E29F00F5B693 /* Super Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88218FB82757E29F00F5B693 /* Super_EyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Super_EyeApp.swift; sourceTree = "<group>"; };
 		88218FBA2757E29F00F5B693 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				88218FB82757E29F00F5B693 /* Super_EyeApp.swift */,
 				88218FBA2757E29F00F5B693 /* ContentView.swift */,
 				88218FC62757E48F00F5B693 /* MainView.swift */,
+				881474C3275A8387001C0AE7 /* ExercisesView.swift */,
 				88218FC82757E52400F5B693 /* SettingsView.swift */,
 				88218FBC2757E2A200F5B693 /* Assets.xcassets */,
 				88218FBE2757E2A200F5B693 /* Preview Content */,
@@ -146,6 +149,7 @@
 				88218FBB2757E29F00F5B693 /* ContentView.swift in Sources */,
 				88218FC92757E52400F5B693 /* SettingsView.swift in Sources */,
 				88218FC72757E48F00F5B693 /* MainView.swift in Sources */,
+				881474C4275A8387001C0AE7 /* ExercisesView.swift in Sources */,
 				88218FB92757E29F00F5B693 /* Super_EyeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
