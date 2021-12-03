@@ -13,7 +13,7 @@ struct ContentView: View {
             MainView()
                 .tabItem {
                     Image(systemName: "eyebrow")
-                    Text("Главная")
+                    Text("Упражнения")
             }
             SettingsView()
                 .tabItem {

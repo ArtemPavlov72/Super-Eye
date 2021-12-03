@@ -11,13 +11,15 @@ struct MainView: View {
     @State private var exercisesViewPresented = false
     
     var body: some View {
-        Button("Начать зарядку") {
-            exercisesViewPresented = true
+        NavigationView{
+            Button("Начать зарядку") {
+                exercisesViewPresented = true
+            }
+            .fullScreenCover(isPresented: $exercisesViewPresented) {
+                ExercisesView()
+            }
+            .navigationTitle("Упражнения")
         }
-        .fullScreenCover(isPresented: $exercisesViewPresented) {
-            ExercisesView()
-        }
-    
     }
 }
 
