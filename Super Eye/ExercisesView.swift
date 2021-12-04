@@ -12,7 +12,18 @@ struct ExercisesView: View {
     
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack {
+                HStack {
+            Text("Номер приложения")
+                    Spacer()
+                    Text(Date().addingTimeInterval(60), style: .timer) //надо будет сделать таймер
+                }
+            Spacer()
+                Button(action: {}, label: {
+                    Image(systemName: "pause.fill")
+                })
+                
+                
                 .toolbar {
                     ToolbarItem {
                         Button("Закончить зарядку") {
@@ -21,6 +32,8 @@ struct ExercisesView: View {
                         }
                     }
                 }
+            }
+            .padding()
         }
     }
 }
