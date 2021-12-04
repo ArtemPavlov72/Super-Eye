@@ -19,6 +19,14 @@ struct ExercisesView: View {
                     Text(Date().addingTimeInterval(60), style: .timer) //надо будет сделать таймер
                 }
             Spacer()
+                HStack{
+                EyeView()
+                    .frame(width: 80, height: 80)
+                    EyeView()
+                        .frame(width: 80, height: 80)
+                }
+                Spacer()
+                
                 Button(action: {}, label: {
                     Image(systemName: "pause.fill")
                 })
