@@ -14,34 +14,37 @@ struct ExercisesView: View {
         NavigationView {
             VStack {
                 HStack {
-            Text("Номер приложения")
+                    Text("Название упражнения")
                     Spacer()
                     Text(Date().addingTimeInterval(60), style: .timer) //надо будет сделать таймер
                 }
-            Spacer()
+                .padding(.horizontal)
+                Spacer()
                 HStack{
-                EyeView()
-                    .frame(width: 80, height: 80)
                     EyeView()
-                        .frame(width: 80, height: 80)
+                        .frame(width: 50, height: 50)
+                    EyeView()
+                        .frame(width: 50, height: 50)
                 }
                 Spacer()
                 
                 Button(action: {}, label: {
                     Image(systemName: "pause.fill")
+                        .foregroundColor(Color.mint.opacity(0.8))
+                    //.resizable()
+                        .scaleEffect(1.4)
                 })
                 
                 
-                .toolbar {
-                    ToolbarItem {
-                        Button("Закончить зарядку") {
-                            presentationMode.wrappedValue.dismiss()
-                            
+                    .toolbar {
+                        ToolbarItem {
+                            Button("Закончить зарядку") {
+                                presentationMode.wrappedValue.dismiss()
+                                
+                            }
                         }
                     }
-                }
             }
-            .padding()
         }
     }
 }
