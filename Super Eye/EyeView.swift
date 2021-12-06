@@ -20,7 +20,7 @@ struct EyeView: View {
                     .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [.mint.opacity(0.8), .blue.opacity(0.8)]),
-                        startPoint: UnitPoint(x: 1, y: 1),
+                        startPoint: UnitPoint(x: 1, y: 0),
                         endPoint: UnitPoint(x: 0, y: 1)
                     )
                     )

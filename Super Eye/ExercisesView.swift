@@ -21,10 +21,13 @@ struct ExercisesView: View {
                 .padding(.horizontal)
                 Spacer()
                 HStack{
+                    Spacer(minLength: 120)
                     EyeView()
                         .frame(width: 50, height: 50)
+                    Spacer()
                     EyeView()
                         .frame(width: 50, height: 50)
+                    Spacer(minLength: 120)
                 }
                 Spacer()
                 
