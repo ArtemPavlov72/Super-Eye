@@ -19,9 +19,9 @@ class TimeCounter: ObservableObject {
     
     var currentExercise = CurrentExercise.relaxation
     
-    var counter = 60
+    var counter = 7
     var timer: Timer?
-    var titleOfExercise = "Приготовьтесь"
+    var titleOfExercise = "Расслабление"
     
     func startTimer() {
         if counter > 0 {

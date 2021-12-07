@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ExercisesView: View {
     @Environment(\.presentationMode) var presentationMode
+    @StateObject private var timer = TimeCounter()
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("Название упражнения")
+                    Text("\(timer.titleOfExercise)")
                     Spacer()
-                    Text(Date().addingTimeInterval(60), style: .timer) //надо будет сделать таймер
+                    Text("\(timer.counter)") //надо будет сделать таймер
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -31,8 +32,8 @@ struct ExercisesView: View {
                 }
                 Spacer()
                 
-                Button(action: {}, label: {
-                    Image(systemName: "pause.fill")
+                Button(action: {timer.startTimer()}, label: {
+                    Image(systemName: "play.fill")
                         .foregroundColor(Color.mint.opacity(0.8))
                     //.resizable()
                         .scaleEffect(1.4)
