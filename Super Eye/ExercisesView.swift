@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ExercisesView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @StateObject private var timer = TimeCounter()
+    
+    @State private var animation = false
+    
+    var animationIsOn: Animation {
+        Animation.linear(duration: 2.0)
+            .repeatForever(autoreverses: false)
+    }
     
     var body: some View {
         NavigationView {
@@ -25,21 +33,26 @@ struct ExercisesView: View {
                     Spacer(minLength: 120)
                     EyeView()
                         .frame(width: 50, height: 50)
+                        
+                        .rotationEffect(.degrees(animation ? 360 : 0))
+                        .animation(animation ? animationIsOn : .default, value: animation)
                     Spacer()
                     EyeView()
                         .frame(width: 50, height: 50)
+                        .rotationEffect(.degrees(animation ? 360 : 0))
+                        .animation(animation ? animationIsOn : .default, value: animation)
                     Spacer(minLength: 120)
                 }
                 Spacer()
                 
-                Button(action: {timer.startTimer()}, label: {
+                Button(action: {buttonAction()}, label: {
                     Image(systemName: "play.fill")
                         .foregroundColor(Color.mint.opacity(0.8))
                     //.resizable()
                         .scaleEffect(1.4)
-                })
-                
-                
+                }
+                )
+
                     .toolbar {
                         ToolbarItem {
                             Button("Закончить зарядку") {
@@ -51,6 +64,13 @@ struct ExercisesView: View {
             }
         }
     }
+    private func buttonAction() {
+        timer.startTimer()
+        withAnimation {
+            animation.toggle()
+        }
+    }
+    
 }
 
 struct ExercisesView_Previews: PreviewProvider {
