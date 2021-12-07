@@ -10,21 +10,21 @@ import Combine
 import SwiftUI
 
 enum CurrentExercise {
-    case relaxation, blinking, main
+    case relaxation, blinking, main, stop
 }
 
 class TimeCounter: ObservableObject {
     
     let objectWillChange = PassthroughSubject<TimeCounter, Never>()
     
-    var currentExercise = CurrentExercise.relaxation
+    var currentExercise = CurrentExercise.blinking
     
-    var counter = 7
+    var counter = 3
     var timer: Timer?
     var titleOfExercise = "Расслабление"
     
     func startTimer() {
-        if counter > 0 {
+        if counter >= 0 {
             timer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
@@ -40,7 +40,7 @@ class TimeCounter: ObservableObject {
         if counter > 0 {
             counter -= 1
         } else {
-            killTimer()
+           // killTimer()
             titleOfExerciseDidChanged()
         }
         objectWillChange.send(self)
@@ -56,16 +56,21 @@ class TimeCounter: ObservableObject {
         
         switch currentExercise {
         case .relaxation:
-            counter = 7
+            counter = 3
             titleOfExercise = "Расслабление"
             currentExercise = .blinking
         case .blinking:
-            counter = 5
+            counter = 2
             titleOfExercise = "Быстро моргаем"
             currentExercise = .main
         case .main:
-            counter = 10
+            counter = 5
             titleOfExercise = "Основное упражнение"
+            currentExercise = .stop
+        case .stop:
+            killTimer()
+            currentExercise = .relaxation
+            
         }
         objectWillChange.send(self)
     }
