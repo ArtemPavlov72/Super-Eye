@@ -25,7 +25,7 @@ struct ExercisesView: View {
                 HStack {
                     Text("\(timer.titleOfExercise)")
                     Spacer()
-                    Text("\(timer.counter)") //надо будет сделать таймер
+                    Text("\(timer.counter)") 
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -50,6 +50,7 @@ struct ExercisesView: View {
                         .foregroundColor(Color.mint.opacity(0.8))
                     //.resizable()
                         .scaleEffect(1.4)
+                        .padding()
                 }
                 )
 
