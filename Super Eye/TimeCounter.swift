@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import SwiftUI
 
 enum CurrentExercise {
     case relaxation, blinking, main, stop
@@ -19,10 +18,23 @@ class TimeCounter: ObservableObject {
     
     var currentExercise = CurrentExercise.blinking
     
+    var isPaused = true
     var counter = 3
     var timer: Timer?
     var titleOfExercise = "Расслабление"
     var buttonImage = "play.fill"
+    
+    func pauseResume() {
+        if isPaused {
+            startTimer()
+            isPaused = false
+            buttonDidTapped()
+        } else {
+            stopTimer()
+            isPaused = true
+            buttonDidTapped()
+        }
+    }
     
     func startTimer() {
         if counter >= 0 {
@@ -34,8 +46,10 @@ class TimeCounter: ObservableObject {
                 repeats: true
             )
         }
-        buttonDidTapped()
+        
     }
+    
+    
     
     @objc private func updateCounter() {
         if counter > 0 {
@@ -78,6 +92,8 @@ class TimeCounter: ObservableObject {
             currentExercise = .stop
         case .stop:
             killTimer()
+            isPaused = true
+            titleOfExercise = "Упражнения завершены!"
             currentExercise = .relaxation
             
         }
@@ -86,7 +102,7 @@ class TimeCounter: ObservableObject {
     // смена картинки кнопки
     private func buttonDidTapped() {
         if buttonImage == "pause.fill" {
-           // stopTimer()
+            stopTimer()
             buttonImage = "play.fill"
         } else {
             if buttonImage == "play.fill" {

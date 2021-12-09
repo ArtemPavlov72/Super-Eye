@@ -56,17 +56,18 @@ struct ExercisesView: View {
 
                     .toolbar {
                         ToolbarItem {
-                            Button("Закончить зарядку") {
-                                presentationMode.wrappedValue.dismiss()
-                                
+                            Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                                Image(systemName: "multiply")
                             }
+                                   )
+                            
                         }
                     }
             }
         }
     }
     private func buttonAction() {
-        timer.startTimer()
+        timer.pauseResume()
         withAnimation {
             animation.toggle()
         }
