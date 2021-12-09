@@ -13,6 +13,7 @@ struct ExercisesView: View {
     @StateObject private var timer = TimeCounter()
     
     @State private var animation = false
+    @State private var AboutExercises = false
     
     var animationIsOn: Animation {
         Animation.linear(duration: 2.0)
@@ -25,7 +26,7 @@ struct ExercisesView: View {
                 HStack {
                     Text("\(timer.titleOfExercise)")
                     Spacer()
-                    Text("\(timer.counter)") 
+                    Text("\(timer.counter)")
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -33,7 +34,7 @@ struct ExercisesView: View {
                     Spacer(minLength: 120)
                     EyeView()
                         .frame(width: 50, height: 50)
-                        
+                    
                         .rotationEffect(.degrees(animation ? 360 : 0))
                         .animation(animation ? animationIsOn : .default, value: animation)
                     Spacer()
@@ -53,17 +54,26 @@ struct ExercisesView: View {
                         .padding()
                 }
                 )
-
+                
                     .toolbar {
                         ToolbarItem {
-                            Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                                Image(systemName: "multiply")
+                            HStack {
+                                Button(action: {AboutExercises = true}, label: {
+                                    Image(systemName: "questionmark.app.dashed")
+                                }
+                                )
+                                Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                                    Image(systemName: "xmark.app")
+                                }
+                                )
+                                
                             }
-                                   )
-                            
                         }
                     }
             }
+        }
+        .sheet(isPresented: $AboutExercises) {
+            AboutExercisesView()
         }
     }
     private func buttonAction() {

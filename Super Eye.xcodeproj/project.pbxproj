@@ -16,6 +16,7 @@
 		88218FC92757E52400F5B693 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88218FC82757E52400F5B693 /* SettingsView.swift */; };
 		88E029E6275B73E3000620A0 /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E5275B73E3000620A0 /* EyeView.swift */; };
 		88E029E8275E89B7000620A0 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E7275E89B7000620A0 /* TimeCounter.swift */; };
+		88E029EA27626C58000620A0 /* AboutExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E927626C58000620A0 /* AboutExercisesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		88218FC82757E52400F5B693 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		88E029E5275B73E3000620A0 /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
 		88E029E7275E89B7000620A0 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
+		88E029E927626C58000620A0 /* AboutExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutExercisesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				88218FC82757E52400F5B693 /* SettingsView.swift */,
 				881474C3275A8387001C0AE7 /* ExercisesView.swift */,
 				88E029E5275B73E3000620A0 /* EyeView.swift */,
+				88E029E927626C58000620A0 /* AboutExercisesView.swift */,
 				88E029E7275E89B7000620A0 /* TimeCounter.swift */,
 				88218FBC2757E2A200F5B693 /* Assets.xcassets */,
 				88218FBE2757E2A200F5B693 /* Preview Content */,
@@ -156,6 +159,7 @@
 				88218FC92757E52400F5B693 /* SettingsView.swift in Sources */,
 				88218FC72757E48F00F5B693 /* MainView.swift in Sources */,
 				88E029E6275B73E3000620A0 /* EyeView.swift in Sources */,
+				88E029EA27626C58000620A0 /* AboutExercisesView.swift in Sources */,
 				881474C4275A8387001C0AE7 /* ExercisesView.swift in Sources */,
 				88E029E8275E89B7000620A0 /* TimeCounter.swift in Sources */,
 				88218FB92757E29F00F5B693 /* Super_EyeApp.swift in Sources */,

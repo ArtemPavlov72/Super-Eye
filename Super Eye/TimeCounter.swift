@@ -24,6 +24,7 @@ class TimeCounter: ObservableObject {
     var titleOfExercise = "Расслабление"
     var buttonImage = "play.fill"
     
+    //переименовать название
     func pauseResume() {
         if isPaused {
             startTimer()
@@ -46,10 +47,7 @@ class TimeCounter: ObservableObject {
                 repeats: true
             )
         }
-        
     }
-    
-    
     
     @objc private func updateCounter() {
         if counter > 0 {
@@ -75,6 +73,7 @@ class TimeCounter: ObservableObject {
         
     }
     
+    //временная логика для понимания работоспособности
     private func titleOfExerciseDidChanged() {
         
         switch currentExercise {
