@@ -46,7 +46,7 @@ struct ExercisesView: View {
                 Spacer()
                 
                 Button(action: {buttonAction()}, label: {
-                    Image(systemName: "play.fill")
+                    Image(systemName: timer.buttonImage) //меняем картинку кнопки
                         .foregroundColor(Color.mint.opacity(0.8))
                     //.resizable()
                         .scaleEffect(1.4)

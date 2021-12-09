@@ -22,6 +22,7 @@ class TimeCounter: ObservableObject {
     var counter = 3
     var timer: Timer?
     var titleOfExercise = "Расслабление"
+    var buttonImage = "play.fill"
     
     func startTimer() {
         if counter >= 0 {
@@ -33,7 +34,7 @@ class TimeCounter: ObservableObject {
                 repeats: true
             )
         }
-     //   titleOfExerciseDidChanged()
+        buttonDidTapped()
     }
     
     @objc private func updateCounter() {
@@ -47,9 +48,17 @@ class TimeCounter: ObservableObject {
         
     }
     
+    //останавливаем таймер и выгружаем
     private func killTimer() {
         timer?.invalidate()
         timer = nil
+        buttonImage = "play.fill"
+    }
+    
+    //останавливаем таймер, но не выгружаем
+    private func stopTimer() {
+        timer?.invalidate()
+        
     }
     
     private func titleOfExerciseDidChanged() {
@@ -74,5 +83,15 @@ class TimeCounter: ObservableObject {
         }
         objectWillChange.send(self)
     }
-    
+    // смена картинки кнопки
+    private func buttonDidTapped() {
+        if buttonImage == "pause.fill" {
+           // stopTimer()
+            buttonImage = "play.fill"
+        } else {
+            if buttonImage == "play.fill" {
+                buttonImage = "pause.fill"
+            }
+        }
+    }
 }
