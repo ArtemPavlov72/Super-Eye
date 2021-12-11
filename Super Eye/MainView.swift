@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct MainView: View {
     @State private var exercisesViewPresented = false
@@ -14,6 +15,7 @@ struct MainView: View {
         NavigationView{
             Button("Начать зарядку") {
                 exercisesViewPresented = true
+                AudioServicesPlaySystemSound(1022)
             }
             .fullScreenCover(isPresented: $exercisesViewPresented) {
                 ExercisesView()
