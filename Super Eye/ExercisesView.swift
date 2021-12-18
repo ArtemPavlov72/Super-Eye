@@ -59,10 +59,12 @@ struct ExercisesView: View {
                         ToolbarItem {
                             HStack {
                                 Button(action: {AboutExercises = true}, label: {
+                                   // Text("?")
                                     Image(systemName: "questionmark.app.dashed")
                                 }
                                 )
                                 Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                                    //Text("X")
                                     Image(systemName: "xmark.app")
                                 }
                                 )

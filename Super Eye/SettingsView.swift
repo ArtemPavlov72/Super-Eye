@@ -16,7 +16,6 @@ struct SettingsView: View {
             List() {
                 Text("Звуковое сопровождение")
                 Text("Сбросить статистику")
-                NavigationLink("Инструкция", destination: AboutExercisesView())
                 Text("Настроить расписание")
                 Text("О приложении")
                 Text("Связь с разработчиком")

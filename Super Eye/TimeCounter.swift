@@ -12,11 +12,15 @@ enum CurrentExercise {
     case relaxation, blinking, main, stop
 }
 
+enum CurrentTimer {
+    case small, middle, max
+}
+
 class TimeCounter: ObservableObject {
     
     let objectWillChange = PassthroughSubject<TimeCounter, Never>()
     
-    var currentExercise = CurrentExercise.blinking
+    var currentExercise = CurrentExercise.relaxation
     
     var isPaused = true
     var counter = 3
@@ -75,18 +79,22 @@ class TimeCounter: ObservableObject {
     
     //временная логика для понимания работоспособности
     private func titleOfExerciseDidChanged() {
+        let longExercise = 15
+        let mediumExercise = 10
+        let fastExercise = 5
+        
         
         switch currentExercise {
         case .relaxation:
-            counter = 3
+            counter = longExercise
             titleOfExercise = "Расслабление"
             currentExercise = .blinking
         case .blinking:
-            counter = 2
+            counter = fastExercise
             titleOfExercise = "Быстро моргаем"
             currentExercise = .main
         case .main:
-            counter = 5
+            counter = mediumExercise
             titleOfExercise = "Основное упражнение"
             currentExercise = .stop
         case .stop:
