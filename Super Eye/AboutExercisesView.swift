@@ -16,7 +16,8 @@ struct AboutExercisesView: View {
             List(exercises) { exercise in
                 Section(header: Text(exercise.name)) {
                     Text(exercise.description)
-                    Text("Рекомендуемое время на упражнение \(exercise.timeOfExercise)сек")
+                    Text("Время на упражнение \(exercise.timeOfExercise) секунд")
+                        .font(.caption)
                 }
             }
             .navigationTitle("Инструкция")
