@@ -9,13 +9,17 @@ import SwiftUI
 
 struct AboutExercisesView: View {
     
-    
-    
     var body: some View {
-        Text("Здесь будет инструкция")
-            
-    }
+        NavigationView{
+            List() {
+                Text("3939939393939393939939393939393к3к9пмоуктплоуктполуткпотукп")
+                Text("3939939393939393939939393939393к3к9пмоуктплоуктполуткпотукп")
+            }
+            .navigationTitle("Инструкция")
+            .listStyle(.plain)
+        }
         
+    }
 }
 
 
