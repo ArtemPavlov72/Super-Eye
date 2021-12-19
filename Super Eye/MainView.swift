@@ -18,7 +18,7 @@ struct MainView: View {
                 //AudioServicesPlaySystemSound(1022)
             }
             .fullScreenCover(isPresented: $exercisesViewPresented) {
-                ExercisesView()
+                ExercisesView(exercises: Exercise.getExercisesList())
             
             }
            

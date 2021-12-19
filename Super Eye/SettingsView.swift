@@ -24,9 +24,6 @@ struct SettingsView: View {
             .listStyle(.plain)
         }
         
-        .sheet(isPresented: $AboutExercises) {
-            AboutExercisesView()
-        }
     }
 
 }

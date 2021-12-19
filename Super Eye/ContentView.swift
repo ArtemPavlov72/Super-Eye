@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private let exercises = Exercise.getExercisesList()
+    
     var body: some View {
         
         TabView {
@@ -18,7 +21,7 @@ struct ContentView: View {
                         
             }
              
-            AboutExercisesView()
+            AboutExercisesView(exercises: exercises)
                 .tabItem {
                     Image(systemName: "questionmark.app")
                     Text("Инструкция")

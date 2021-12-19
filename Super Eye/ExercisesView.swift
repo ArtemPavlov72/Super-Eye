@@ -15,6 +15,8 @@ struct ExercisesView: View {
     @State private var animation = false
     @State private var AboutExercises = false
     
+    let exercises: [Exercise]
+    
     var animationIsOn: Animation {
         Animation.linear(duration: 2.0)
             .repeatForever(autoreverses: false)
@@ -75,7 +77,7 @@ struct ExercisesView: View {
             }
         }
         .sheet(isPresented: $AboutExercises) {
-            AboutExercisesView()
+            AboutExercisesView(exercises: Exercise.getExercisesList())
         }
     }
     private func buttonAction() {
@@ -89,6 +91,6 @@ struct ExercisesView: View {
 
 struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisesView()
+        ExercisesView(exercises: Exercise.getExercisesList())
     }
 }

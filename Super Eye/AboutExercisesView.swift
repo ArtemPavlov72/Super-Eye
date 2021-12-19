@@ -9,11 +9,15 @@ import SwiftUI
 
 struct AboutExercisesView: View {
     
+    let exercises: [Exercise]
+    
     var body: some View {
         NavigationView{
-            List() {
-                Text("3939939393939393939939393939393к3к9пмоуктплоуктполуткпотукп")
-                Text("3939939393939393939939393939393к3к9пмоуктплоуктполуткпотукп")
+            List(exercises) { exercise in
+                Section(header: Text(exercise.name)) {
+                    Text(exercise.description)
+                }
+             
             }
             .navigationTitle("Инструкция")
             .listStyle(.plain)
@@ -25,6 +29,6 @@ struct AboutExercisesView: View {
 
 struct AboutExercisesView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutExercisesView()
+        AboutExercisesView(exercises: Exercise.getExercisesList())
     }
 }
