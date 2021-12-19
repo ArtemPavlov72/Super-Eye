@@ -33,10 +33,9 @@ struct ExercisesView: View {
                 .padding(.horizontal)
                 Spacer()
                 HStack{
-                    Spacer(minLength: 120)
+                    Spacer(minLength: 135)
                     EyeView()
                         .frame(width: 50, height: 50)
-                    
                         .rotationEffect(.degrees(animation ? 360 : 0))
                         .animation(animation ? animationIsOn : .default, value: animation)
                     Spacer()
@@ -44,14 +43,13 @@ struct ExercisesView: View {
                         .frame(width: 50, height: 50)
                         .rotationEffect(.degrees(animation ? 360 : 0))
                         .animation(animation ? animationIsOn : .default, value: animation)
-                    Spacer(minLength: 120)
+                    Spacer(minLength: 135)
                 }
                 Spacer()
                 
                 Button(action: {buttonAction()}, label: {
                     Image(systemName: timer.buttonImage) //меняем картинку кнопки
                         .foregroundColor(Color.mint.opacity(0.8))
-                    //.resizable()
                         .scaleEffect(1.4)
                         .padding()
                 }
@@ -61,16 +59,13 @@ struct ExercisesView: View {
                         ToolbarItem {
                             HStack {
                                 Button(action: {AboutExercises = true}, label: {
-                                   // Text("?")
                                     Image(systemName: "questionmark.app.dashed")
                                 }
                                 )
                                 Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                                    //Text("X")
                                     Image(systemName: "xmark.app")
                                 }
                                 )
-                                
                             }
                         }
                     }
@@ -86,7 +81,6 @@ struct ExercisesView: View {
             animation.toggle()
         }
     }
-    
 }
 
 struct ExercisesView_Previews: PreviewProvider {

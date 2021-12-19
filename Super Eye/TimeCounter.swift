@@ -9,7 +9,10 @@ import Foundation
 import Combine
 
 enum CurrentExercise {
-    case relaxation, blinking, main, stop
+    case relaxation,
+         blinking,
+         main,
+         stop
 }
 
 enum CurrentTimer {
@@ -57,11 +60,9 @@ class TimeCounter: ObservableObject {
         if counter > 0 {
             counter -= 1
         } else {
-           // killTimer()
             titleOfExerciseDidChanged()
         }
         objectWillChange.send(self)
-        
     }
     
     //останавливаем таймер и выгружаем
@@ -82,7 +83,6 @@ class TimeCounter: ObservableObject {
         let longExercise = 15
         let mediumExercise = 10
         let fastExercise = 5
-        
         
         switch currentExercise {
         case .relaxation:

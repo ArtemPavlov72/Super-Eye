@@ -16,16 +16,14 @@ struct AboutExercisesView: View {
             List(exercises) { exercise in
                 Section(header: Text(exercise.name)) {
                     Text(exercise.description)
+                    Text("Рекомендуемое время на упражнение \(exercise.timeOfExercise)сек")
                 }
-             
             }
             .navigationTitle("Инструкция")
             .listStyle(.plain)
         }
-        
     }
 }
-
 
 struct AboutExercisesView_Previews: PreviewProvider {
     static var previews: some View {
