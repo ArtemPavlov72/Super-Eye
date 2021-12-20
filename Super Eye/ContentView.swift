@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            MainView()
+            MainView(exercises: exercises)
                 .tabItem {
                     Image(systemName: "eyebrow")
                     Text("Упражнения")

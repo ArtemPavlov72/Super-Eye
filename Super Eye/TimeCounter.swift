@@ -25,6 +25,8 @@ class TimeCounter: ObservableObject {
     
     var currentExercise = CurrentExercise.relaxation
     
+   // let exercises: [Exercise]
+    
     var isPaused = true
     var counter = 3
     var timer: Timer?

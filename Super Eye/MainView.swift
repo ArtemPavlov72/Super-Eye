@@ -11,6 +11,8 @@ import AVFoundation
 struct MainView: View {
     @State private var exercisesViewPresented = false
     
+    let exercises: [Exercise]
+    
     var body: some View {
         NavigationView{
             Button("Начать зарядку") {
@@ -18,7 +20,7 @@ struct MainView: View {
                 //AudioServicesPlaySystemSound(1022)
             }
             .fullScreenCover(isPresented: $exercisesViewPresented) {
-                ExercisesView(exercises: Exercise.getExercisesList())
+                ExercisesView(exercises: exercises)
             
             }
            
@@ -29,6 +31,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(exercises: Exercise.getExercisesList())
     }
 }

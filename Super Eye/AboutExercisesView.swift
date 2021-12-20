@@ -14,14 +14,30 @@ struct AboutExercisesView: View {
     var body: some View {
         NavigationView{
             List(exercises) { exercise in
-                Section(header: Text(exercise.name)) {
+                Section(header: Text(exercise.name).bold()) {
                     Text(exercise.description)
+                    
+                    HStack{
+                        Spacer(minLength: 135)
+                        EyeView()
+                            .frame(width: 30, height: 30)
+                            
+                            
+                        Spacer()
+                        EyeView()
+                            .frame(width: 30, height: 30)
+                            
+                            
+                        Spacer(minLength: 135)
+                    }
+                    
                     Text("Время на упражнение \(exercise.timeOfExercise) секунд")
-                        .font(.caption)
+                        //.font(.caption)
+                        
                 }
             }
             .navigationTitle("Инструкция")
-            .listStyle(.plain)
+            //.listStyle(.plain)
         }
     }
 }
