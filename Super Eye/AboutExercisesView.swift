@@ -31,7 +31,7 @@ struct AboutExercisesView: View {
                         Spacer(minLength: 135)
                     }
                     
-                    Text("Время на упражнение \(exercise.timeOfExercise) секунд")
+                    Text("Время на упражнение \(exercise.duration) секунд")
                         //.font(.caption)
                         
                 }

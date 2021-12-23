@@ -10,13 +10,9 @@ import Combine
 
 enum CurrentExercise {
     case relaxation,
-         blinking,
          main,
+         blinking,
          stop
-}
-
-enum CurrentTimer {
-    case small, middle, max
 }
 
 class TimeCounter: ObservableObject {
@@ -25,7 +21,7 @@ class TimeCounter: ObservableObject {
     
     var currentExercise = CurrentExercise.relaxation
     
-   // let exercises: [Exercise]
+    let exercises = Exercise.getExercisesList()
     
     var isPaused = true
     var counter = 3
@@ -82,21 +78,28 @@ class TimeCounter: ObservableObject {
     
     //временная логика для понимания работоспособности
     private func titleOfExerciseDidChanged() {
-        let longExercise = 15
-        let mediumExercise = 10
-        let fastExercise = 5
+      //  var currentBlinking = 0
+        
+      //  switch currentBlinking {
+            
+        
+            
+        
+        
+        
+  
         
         switch currentExercise {
         case .relaxation:
-            counter = longExercise
+            counter = 10
             titleOfExercise = "Расслабление"
             currentExercise = .blinking
         case .blinking:
-            counter = fastExercise
+            counter = 3
             titleOfExercise = "Быстро моргаем"
             currentExercise = .main
         case .main:
-            counter = mediumExercise
+            counter = 5
             titleOfExercise = "Основное упражнение"
             currentExercise = .stop
         case .stop:
