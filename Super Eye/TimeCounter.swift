@@ -8,26 +8,18 @@
 import Foundation
 import Combine
 
-enum CurrentExercise {
-    case relaxation,
-         main,
-         blinking,
-         stop
-}
-
 class TimeCounter: ObservableObject {
     
     let objectWillChange = PassthroughSubject<TimeCounter, Never>()
     
-    var currentExercise = CurrentExercise.relaxation
-    
-    let exercises = Exercise.getExercisesList()
-    
+    var currentExercise = Exercises.blinking
+    var counter = Exercises.relaxation.exerciseData.duration
+    var titleOfExercise = Exercises.relaxation.exerciseData.name
     var isPaused = true
-    var counter = 3
     var timer: Timer?
-    var titleOfExercise = "Расслабление"
     var buttonImage = "play.fill"
+    
+    var playStop = true
     
     //переименовать название
     func pauseResume() {
@@ -73,42 +65,75 @@ class TimeCounter: ObservableObject {
     //останавливаем таймер, но не выгружаем
     private func stopTimer() {
         timer?.invalidate()
-        
     }
     
     //временная логика для понимания работоспособности
     private func titleOfExerciseDidChanged() {
-      //  var currentBlinking = 0
         
-      //  switch currentBlinking {
-            
-        
-            
-        
-        
-        
-  
-        
+        if playStop {
         switch currentExercise {
         case .relaxation:
-            counter = 10
-            titleOfExercise = "Расслабление"
+            counter = Exercises.relaxation.exerciseData.duration
+            titleOfExercise = Exercises.relaxation.exerciseData.name
             currentExercise = .blinking
         case .blinking:
-            counter = 3
-            titleOfExercise = "Быстро моргаем"
-            currentExercise = .main
-        case .main:
-            counter = 5
-            titleOfExercise = "Основное упражнение"
-            currentExercise = .stop
-        case .stop:
+            counter = Exercises.blinking.exerciseData.duration
+            titleOfExercise = Exercises.blinking.exerciseData.name
+            currentExercise = .upDown
+        case .upDown:
+            counter = Exercises.upDown.exerciseData.duration
+            titleOfExercise = Exercises.upDown.exerciseData.name
+            currentExercise = .leftRight
+        case .leftRight:
+            counter = Exercises.leftRight.exerciseData.duration
+            titleOfExercise = Exercises.leftRight.exerciseData.name
+            currentExercise = .diagonalHL
+        case .diagonalHL:
+            counter = Exercises.diagonalHL.exerciseData.duration
+            titleOfExercise = Exercises.diagonalHL.exerciseData.name
+            currentExercise = .diagonalLH
+        case .diagonalLH:
+            counter = Exercises.diagonalLH.exerciseData.duration
+            titleOfExercise = Exercises.diagonalLH.exerciseData.name
+            currentExercise = .squareClockwise
+        case .squareClockwise:
+            counter = Exercises.squareClockwise.exerciseData.duration
+            titleOfExercise = Exercises.squareClockwise.exerciseData.name
+            currentExercise = .squareCounterClockwise
+        case .squareCounterClockwise:
+            counter = Exercises.squareCounterClockwise.exerciseData.duration
+            titleOfExercise = Exercises.squareCounterClockwise.exerciseData.name
+            currentExercise = .circleClockwise
+        case .circleClockwise:
+            counter = Exercises.circleClockwise.exerciseData.duration
+            titleOfExercise = Exercises.circleClockwise.exerciseData.name
+            currentExercise = .circleConterClockwise
+        case .circleConterClockwise:
+            counter = Exercises.circleConterClockwise.exerciseData.duration
+            titleOfExercise = Exercises.circleConterClockwise.exerciseData.name
+            currentExercise = .slide
+        case .slide:
+            counter = Exercises.slide.exerciseData.duration
+            titleOfExercise = Exercises.slide.exerciseData.name
+            currentExercise = .snake
+        case .snake:
+            counter = Exercises.snake.exerciseData.duration
+            titleOfExercise = Exercises.snake.exerciseData.name
+            currentExercise = .distance
+        case .distance:
+            counter = Exercises.distance.exerciseData.duration
+            titleOfExercise = Exercises.distance.exerciseData.name
+            playStop.toggle()
+        }
+        } else {
             killTimer()
-            isPaused = true
-            titleOfExercise = "Упражнения завершены!"
+            titleOfExercise = Exercises.relaxation.exerciseData.name
+            counter = Exercises.relaxation.exerciseData.duration
             currentExercise = .relaxation
             
+            
         }
+        
         objectWillChange.send(self)
     }
     // смена картинки кнопки

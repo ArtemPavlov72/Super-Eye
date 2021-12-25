@@ -37,11 +37,11 @@ enum TimerDuration {
     var durationValue: Int {
         switch self {
         case .longExercise:
-            return 10
-        case .mediumExercise:
-            return 7
-        case .shortExercise:
             return 3
+        case .mediumExercise:
+            return 1
+        case .shortExercise:
+            return 2
         }
     }
 }
@@ -60,7 +60,7 @@ enum Exercises: CaseIterable {
          slide,
          snake,
          distance
-
+    
     var exerciseData: Exercise {
         switch self {
         case .relaxation:

@@ -45,7 +45,9 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
             ContentView()
-.previewInterfaceOrientation(.portrait)
+                .previewInterfaceOrientation(.portrait)
+            ContentView()
+                .previewInterfaceOrientation(.portrait)
         }
     }
 }
