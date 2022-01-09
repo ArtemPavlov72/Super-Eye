@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AVFoundation
+import AVFoundation //для рингтона
 
 struct MainView: View {
     @State private var exercisesViewPresented = false
@@ -17,13 +17,11 @@ struct MainView: View {
         NavigationView{
             Button("Начать зарядку") {
                 exercisesViewPresented = true
-                //AudioServicesPlaySystemSound(1022)
+                //AudioServicesPlaySystemSound(1022) стандартный рингтон
             }
             .fullScreenCover(isPresented: $exercisesViewPresented) {
                 ExercisesView(exercises: exercises)
-            
             }
-           
             .navigationTitle("Упражнения")
         }
     }

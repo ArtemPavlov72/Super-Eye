@@ -15,7 +15,7 @@ struct Exercise: Identifiable {
         
         var exercises: [Exercise] = []
         
-        for exerciseCase in Exercises.allCases {
+        for exerciseCase in TypeOfExercise.allCases {
             let exercise = Exercise(
                 id: exerciseCase.exerciseData.id,
                 name: exerciseCase.exerciseData.name,
@@ -26,7 +26,6 @@ struct Exercise: Identifiable {
         }
         return exercises
     }
-    
 }
 
 enum TimerDuration {
@@ -46,7 +45,7 @@ enum TimerDuration {
     }
 }
 
-enum Exercises: CaseIterable {
+enum TypeOfExercise: CaseIterable {
     case relaxation,
          blinking,
          upDown,

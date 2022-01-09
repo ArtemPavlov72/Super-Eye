@@ -11,7 +11,6 @@ struct ExercisesView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject private var timer = TimeCounter()
-    
     @State private var animation = false
     @State private var AboutExercises = false
     
@@ -72,7 +71,7 @@ struct ExercisesView: View {
             }
         }
         .sheet(isPresented: $AboutExercises) {
-            AboutExercisesView(exercises: Exercise.getExercisesList())
+            AboutExercisesView(exercises: exercises)
         }
     }
     private func buttonAction() {

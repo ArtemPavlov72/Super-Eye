@@ -23,9 +23,7 @@ struct SettingsView: View {
             .navigationTitle("Настройки")
             .listStyle(.plain)
         }
-        
     }
-
 }
 
 struct SettingsView_Previews: PreviewProvider {

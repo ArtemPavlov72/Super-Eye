@@ -11,10 +11,11 @@ import Combine
 class TimeCounter: ObservableObject {
     
     let objectWillChange = PassthroughSubject<TimeCounter, Never>()
+
+    var currentExercise = TypeOfExercise.blinking
     
-    var currentExercise = Exercises.blinking
-    var counter = Exercises.relaxation.exerciseData.duration
-    var titleOfExercise = Exercises.relaxation.exerciseData.name
+    var counter = TypeOfExercise.relaxation.exerciseData.duration
+    var titleOfExercise = TypeOfExercise.relaxation.exerciseData.name
     var isPaused = true
     var timer: Timer?
     var buttonImage = "play.fill"
@@ -67,70 +68,70 @@ class TimeCounter: ObservableObject {
         timer?.invalidate()
     }
     
-    //временная логика для понимания работоспособности
+    //логика смены упражнений
     private func titleOfExerciseDidChanged() {
         
         if playStop {
             switch currentExercise {
             case .relaxation:
-                counter = Exercises.relaxation.exerciseData.duration
-                titleOfExercise = Exercises.relaxation.exerciseData.name
+                counter = TypeOfExercise.relaxation.exerciseData.duration
+                titleOfExercise = TypeOfExercise.relaxation.exerciseData.name
                 currentExercise = .blinking
             case .blinking:
-                counter = Exercises.blinking.exerciseData.duration
-                titleOfExercise = Exercises.blinking.exerciseData.name
+                counter = TypeOfExercise.blinking.exerciseData.duration
+                titleOfExercise = TypeOfExercise.blinking.exerciseData.name
                 currentExercise = .upDown
             case .upDown:
-                counter = Exercises.upDown.exerciseData.duration
-                titleOfExercise = Exercises.upDown.exerciseData.name
+                counter = TypeOfExercise.upDown.exerciseData.duration
+                titleOfExercise = TypeOfExercise.upDown.exerciseData.name
                 currentExercise = .leftRight
             case .leftRight:
-                counter = Exercises.leftRight.exerciseData.duration
-                titleOfExercise = Exercises.leftRight.exerciseData.name
+                counter = TypeOfExercise.leftRight.exerciseData.duration
+                titleOfExercise = TypeOfExercise.leftRight.exerciseData.name
                 currentExercise = .diagonalHL
             case .diagonalHL:
-                counter = Exercises.diagonalHL.exerciseData.duration
-                titleOfExercise = Exercises.diagonalHL.exerciseData.name
+                counter = TypeOfExercise.diagonalHL.exerciseData.duration
+                titleOfExercise = TypeOfExercise.diagonalHL.exerciseData.name
                 currentExercise = .diagonalLH
             case .diagonalLH:
-                counter = Exercises.diagonalLH.exerciseData.duration
-                titleOfExercise = Exercises.diagonalLH.exerciseData.name
+                counter = TypeOfExercise.diagonalLH.exerciseData.duration
+                titleOfExercise = TypeOfExercise.diagonalLH.exerciseData.name
                 currentExercise = .squareClockwise
             case .squareClockwise:
-                counter = Exercises.squareClockwise.exerciseData.duration
-                titleOfExercise = Exercises.squareClockwise.exerciseData.name
+                counter = TypeOfExercise.squareClockwise.exerciseData.duration
+                titleOfExercise = TypeOfExercise.squareClockwise.exerciseData.name
                 currentExercise = .squareCounterClockwise
             case .squareCounterClockwise:
-                counter = Exercises.squareCounterClockwise.exerciseData.duration
-                titleOfExercise = Exercises.squareCounterClockwise.exerciseData.name
+                counter = TypeOfExercise.squareCounterClockwise.exerciseData.duration
+                titleOfExercise = TypeOfExercise.squareCounterClockwise.exerciseData.name
                 currentExercise = .circleClockwise
             case .circleClockwise:
-                counter = Exercises.circleClockwise.exerciseData.duration
-                titleOfExercise = Exercises.circleClockwise.exerciseData.name
+                counter = TypeOfExercise.circleClockwise.exerciseData.duration
+                titleOfExercise = TypeOfExercise.circleClockwise.exerciseData.name
                 currentExercise = .circleConterClockwise
             case .circleConterClockwise:
-                counter = Exercises.circleConterClockwise.exerciseData.duration
-                titleOfExercise = Exercises.circleConterClockwise.exerciseData.name
+                counter = TypeOfExercise.circleConterClockwise.exerciseData.duration
+                titleOfExercise = TypeOfExercise.circleConterClockwise.exerciseData.name
                 currentExercise = .slide
             case .slide:
-                counter = Exercises.slide.exerciseData.duration
-                titleOfExercise = Exercises.slide.exerciseData.name
+                counter = TypeOfExercise.slide.exerciseData.duration
+                titleOfExercise = TypeOfExercise.slide.exerciseData.name
                 currentExercise = .snake
             case .snake:
-                counter = Exercises.snake.exerciseData.duration
-                titleOfExercise = Exercises.snake.exerciseData.name
+                counter = TypeOfExercise.snake.exerciseData.duration
+                titleOfExercise = TypeOfExercise.snake.exerciseData.name
                 currentExercise = .distance
             case .distance:
-                counter = Exercises.distance.exerciseData.duration
-                titleOfExercise = Exercises.distance.exerciseData.name
+                counter = TypeOfExercise.distance.exerciseData.duration
+                titleOfExercise = TypeOfExercise.distance.exerciseData.name
                 playStop.toggle()
             }
         } else {
             killTimer()
             playStop.toggle()
             isPaused = true
-            titleOfExercise = Exercises.relaxation.exerciseData.name
-            counter = Exercises.relaxation.exerciseData.duration
+            titleOfExercise = TypeOfExercise.relaxation.exerciseData.name
+            counter = TypeOfExercise.relaxation.exerciseData.duration
             currentExercise = .blinking
         }
         objectWillChange.send(self)

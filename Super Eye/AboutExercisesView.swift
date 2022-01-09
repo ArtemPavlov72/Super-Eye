@@ -16,28 +16,20 @@ struct AboutExercisesView: View {
             List(exercises) { exercise in
                 Section(header: Text(exercise.name).bold()) {
                     Text(exercise.description)
-                    
                     HStack{
                         Spacer(minLength: 135)
                         EyeView()
                             .frame(width: 30, height: 30)
-                            
-                            
                         Spacer()
                         EyeView()
                             .frame(width: 30, height: 30)
-                            
-                            
                         Spacer(minLength: 135)
                     }
-                    
-                    Text("Время на упражнение \(exercise.duration) секунд")
-                        //.font(.caption)
-                        
+                    Text("Время на упражнение \(exercise.duration) сек.")
                 }
             }
             .navigationTitle("Инструкция")
-            //.listStyle(.plain)
+            //.listStyle(.plain) Какой стиль оставить? Может сделать свой?
         }
     }
 }
