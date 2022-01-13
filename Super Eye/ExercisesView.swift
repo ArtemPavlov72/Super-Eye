@@ -10,9 +10,10 @@ import SwiftUI
 struct ExercisesView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject private var timer = TimeCounter()
+    @StateObject private var timer = ExerciseChanger()
     @State private var animation = false
     @State private var AboutExercises = false
+    @State private var displayedExerciseInfo = ""
     
     let exercises: [Exercise]
     
@@ -21,13 +22,16 @@ struct ExercisesView: View {
             .repeatForever(autoreverses: false)
     }
     
+    //разгрузить боди (можно вынести анимацию в отдельный view и создать зависимость анимации от названия упражнения
     var body: some View {
         NavigationView {
             VStack {
+                //ExerciseInfoView(exerciseInfo:)
                 HStack {
                     Text("\(timer.titleOfExercise)")
+                        .frame(height: 45)
                     Spacer()
-                    Text("\(timer.counter)")
+                    Text(displayTimer())
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -75,9 +79,17 @@ struct ExercisesView: View {
         }
     }
     private func buttonAction() {
-        timer.pauseResume()
+        timer.buttonDidTapped()
         withAnimation {
             animation.toggle()
+        }
+    }
+    
+    private func displayTimer() -> String {
+        if timer.timer != nil {
+            return "\(timer.counter)"
+        } else {
+            return ""
         }
     }
 }
@@ -86,4 +98,13 @@ struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
         ExercisesView(exercises: Exercise.getExercisesList())
     }
+}
+
+struct ExerciseInfoView: View {
+    let exerciseInfo: String
+    var body: some View {
+        Text("")
+    }
+    
+    
 }

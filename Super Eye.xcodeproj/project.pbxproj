@@ -17,7 +17,7 @@
 		88432031276E483000B0E232 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88432030276E483000B0E232 /* DataManager.swift */; };
 		88432034276E4CAE00B0E232 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88432033276E4CAE00B0E232 /* Exercise.swift */; };
 		88E029E6275B73E3000620A0 /* EyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E5275B73E3000620A0 /* EyeView.swift */; };
-		88E029E8275E89B7000620A0 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E7275E89B7000620A0 /* TimeCounter.swift */; };
+		88E029E8275E89B7000620A0 /* ExerciseChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E7275E89B7000620A0 /* ExerciseChanger.swift */; };
 		88E029EA27626C58000620A0 /* AboutExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E029E927626C58000620A0 /* AboutExercisesView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +33,7 @@
 		88432030276E483000B0E232 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		88432033276E4CAE00B0E232 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		88E029E5275B73E3000620A0 /* EyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeView.swift; sourceTree = "<group>"; };
-		88E029E7275E89B7000620A0 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
+		88E029E7275E89B7000620A0 /* ExerciseChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseChanger.swift; sourceTree = "<group>"; };
 		88E029E927626C58000620A0 /* AboutExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutExercisesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +74,7 @@
 				88218FC82757E52400F5B693 /* SettingsView.swift */,
 				881474C3275A8387001C0AE7 /* ExercisesView.swift */,
 				88E029E5275B73E3000620A0 /* EyeView.swift */,
-				88E029E7275E89B7000620A0 /* TimeCounter.swift */,
+				88E029E7275E89B7000620A0 /* ExerciseChanger.swift */,
 				88432035276E4CB200B0E232 /* Models */,
 				88432032276E48DB00B0E232 /* Services */,
 				88218FBC2757E2A200F5B693 /* Assets.xcassets */,
@@ -184,7 +184,7 @@
 				88E029EA27626C58000620A0 /* AboutExercisesView.swift in Sources */,
 				88432034276E4CAE00B0E232 /* Exercise.swift in Sources */,
 				881474C4275A8387001C0AE7 /* ExercisesView.swift in Sources */,
-				88E029E8275E89B7000620A0 /* TimeCounter.swift in Sources */,
+				88E029E8275E89B7000620A0 /* ExerciseChanger.swift in Sources */,
 				88432031276E483000B0E232 /* DataManager.swift in Sources */,
 				88218FB92757E29F00F5B693 /* Super_EyeApp.swift in Sources */,
 			);
