@@ -79,7 +79,7 @@ struct ExercisesView: View {
         }
     }
     private func buttonAction() {
-        timer.buttonDidTapped()
+        timer.buttonPlayDidTapped()
         withAnimation {
             animation.toggle()
         }
