@@ -13,7 +13,8 @@ struct ExercisesView: View {
     @StateObject private var timer = ExerciseChanger()
     @State private var animation = false
     @State private var AboutExercises = false
-    @State private var displayedExerciseInfo = ""
+    @State private var displayedExerciseText = ""
+    @State private var displayedExerciseCount = ""
     
     let exercises: [Exercise]
     
@@ -26,12 +27,11 @@ struct ExercisesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                //ExerciseInfoView(exerciseInfo:)
-                HStack {
-                    Text("\(timer.titleOfExercise)")
+               HStack {
+                    Text(checkExerciseTextDidLoad())
                         .frame(height: 45)
                     Spacer()
-                    Text(displayTimer())
+                    Text(checkExerciseCountDidLoad())
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -84,8 +84,16 @@ struct ExercisesView: View {
             animation.toggle()
         }
     }
+
+    private func checkExerciseTextDidLoad() -> String {
+        if timer.timer != nil {
+            return timer.titleOfExercise
+        } else {
+            return "Нажмите PLAY чтобы начать упражнения"
+        }
+    }
     
-    private func displayTimer() -> String {
+    private func checkExerciseCountDidLoad() -> String {
         if timer.timer != nil {
             return "\(timer.counter)"
         } else {
@@ -100,11 +108,3 @@ struct ExercisesView_Previews: PreviewProvider {
     }
 }
 
-struct ExerciseInfoView: View {
-    let exerciseInfo: String
-    var body: some View {
-        Text("")
-    }
-    
-    
-}

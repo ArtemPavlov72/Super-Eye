@@ -13,20 +13,14 @@ class ExerciseChanger: ObservableObject {
     let objectWillChange = PassthroughSubject<ExerciseChanger, Never>()
 
     var currentExercise = TypeOfExercise.relaxation
-    
-    var counter = 0
-    var titleOfExercise = "Нажмите PLAY чтобы начать упражнения" //Нажмите PLAY чтобы начать упражнения
+    var counter = 2
+    var titleOfExercise = "Приготовились..." //Нажмите PLAY чтобы начать упражнения
     var idOfExercise = 0
-    
-    //var counter = TypeOfExercise.relaxation.exerciseData.duration
-    //var titleOfExercise = TypeOfExercise.relaxation.exerciseData.name
-    //var idOfExercise = TypeOfExercise.blinking.exerciseData.id
     
     var isPaused = true
     var timer: Timer?
     var buttonImage = "play.fill"
     var playStop = true
-    
     
     var exerciseTitle = "relaxation" //для повторения кейса морганий
     
@@ -98,10 +92,12 @@ class ExerciseChanger: ObservableObject {
             case .relaxation:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 currentExercise = .blinking
             case .blinking:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 
                 //функцию сделать, где будет приниматься значение текущего кейса, как в уроке 1.7 перечисления
                 switch exerciseTitle {
@@ -134,57 +130,67 @@ class ExerciseChanger: ObservableObject {
             case .upDown:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
-               // idOfExercise = currentExercise.exerciseData.id
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "upDown"
                 currentExercise = .blinking
             case .leftRight:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "leftRight"
                 currentExercise = .blinking
             case .diagonalHL:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "diagonalHL"
                 currentExercise = .blinking
             case .diagonalLH:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "diagonalLH"
                 currentExercise = .blinking
             case .squareClockwise:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "squareClockwise"
                 currentExercise = .blinking
             case .squareCounterClockwise:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "squareCounterClockwise"
                 currentExercise = .blinking
             case .circleClockwise:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "circleClockwise"
                 currentExercise = .blinking
             case .circleConterClockwise:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "circleConterClockwise"
                 currentExercise = .blinking
             case .slide:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "slide"
                 currentExercise = .blinking
             case .snake:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "snake"
                 currentExercise = .blinking
             case .distance:
                 counter = currentExercise.exerciseData.duration
                 titleOfExercise = currentExercise.exerciseData.name
+                idOfExercise = currentExercise.exerciseData.id
                 exerciseTitle = "relaxation"
                 playStop.toggle()
             }
@@ -193,8 +199,8 @@ class ExerciseChanger: ObservableObject {
             playStop.toggle()
             isPaused = true
             currentExercise = .relaxation
-            titleOfExercise = currentExercise.exerciseData.name
-            counter = currentExercise.exerciseData.duration
+            titleOfExercise = "Приготовились..."
+            counter = 2
             
         }
         objectWillChange.send(self)
