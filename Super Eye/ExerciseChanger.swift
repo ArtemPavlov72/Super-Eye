@@ -2,7 +2,7 @@
 //  TimeCounter.swift
 //  Super Eye
 //
-//  Created by iMac on 06.12.2021.
+//  Created by Artem Pavlov on 06.12.2021.
 //
 
 import Foundation
@@ -12,17 +12,20 @@ class ExerciseChanger: ObservableObject {
     
     let objectWillChange = PassthroughSubject<ExerciseChanger, Never>()
     
+    // MARK: - Public Properties
     var currentExercise = TypeOfExercise.relaxation
+    var titleOfExercise = "Приготовились..."
     var counter = 2
-    var titleOfExercise = "Приготовились..." //Нажмите PLAY чтобы начать упражнения
     var idOfExercise = 0
     
-    var timerIsPaused = true
     var timer: Timer?
     var buttonImage = "play.fill"
-    var playStop = true
     
-    //переименовать название
+    // MARK: - Private Properties
+    private var timerIsPaused = true
+    private var playStop = true
+    
+    // MARK: - Public Methods
     func buttonPlayDidTapped() {
         if timerIsPaused {
             startTimer()
@@ -34,8 +37,10 @@ class ExerciseChanger: ObservableObject {
             playPauseChanged()
         }
     }
-    
-    // смена картинки кнопки
+}
+
+// MARK: - Change Button Image Logic
+extension ExerciseChanger {
     private func playPauseChanged() {
         if buttonImage == "pause.fill" {
             stopTimer()
@@ -46,8 +51,11 @@ class ExerciseChanger: ObservableObject {
             }
         }
     }
-    
-    func startTimer() {
+}
+
+// MARK: - Timer Private Methods
+extension ExerciseChanger {
+    private func startTimer() {
         if counter >= 0 {
             timer = Timer.scheduledTimer(
                 timeInterval: 1,
@@ -68,110 +76,49 @@ class ExerciseChanger: ObservableObject {
         objectWillChange.send(self)
     }
     
-    //останавливаем таймер и выгружаем
     private func killTimer() {
         timer?.invalidate()
         timer = nil
         buttonImage = "play.fill"
     }
     
-    //останавливаем таймер, но не выгружаем
     private func stopTimer() {
         timer?.invalidate()
     }
-    
-    //логика смены упражнений
+}
+
+// MARK: - Exercise Changing Logic
+extension ExerciseChanger {
     private func exerciseDidChanged() {
         if playStop {
             switch currentExercise {
             case .relaxation:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .blinking:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                switch idOfExercise {
-                case 1:
-                    currentExercise = .upDown
-                case 3:
-                    currentExercise = .leftRight
-                case 4:
-                    currentExercise = .diagonalHL
-                case 5:
-                    currentExercise = .diagonalLH
-                case 6:
-                    currentExercise = .squareClockwise
-                case 7:
-                    currentExercise = .squareCounterClockwise
-                case 8:
-                    currentExercise = .circleClockwise
-                case 9:
-                    currentExercise = .circleConterClockwise
-                case 10:
-                    currentExercise = .slide
-                case 11:
-                    currentExercise = .snake
-                case 12:
-                    currentExercise = .distance
-                default:
-                    currentExercise = .relaxation
-                }
+                getPropertiesOfExercise(withId: false, withCurrentExercise: false)
+                blinkingRepeat()
             case .upDown:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .leftRight:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .diagonalHL:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .diagonalLH:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .squareClockwise:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .squareCounterClockwise:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .circleClockwise:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .circleConterClockwise:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .slide:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .snake:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
-                currentExercise = .blinking
+                getPropertiesOfExercise(withId: true, withCurrentExercise: true)
             case .distance:
-                counter = currentExercise.exerciseData.duration
-                titleOfExercise = currentExercise.exerciseData.name
-                idOfExercise = currentExercise.exerciseData.id
+                getPropertiesOfExercise(withId: true, withCurrentExercise: false)
                 playStop.toggle()
             }
         } else {
@@ -184,5 +131,42 @@ class ExerciseChanger: ObservableObject {
         }
         objectWillChange.send(self)
     }
+    
+    private func blinkingRepeat() {
+        switch idOfExercise {
+        case 1:
+            currentExercise = .upDown
+        case 3:
+            currentExercise = .leftRight
+        case 4:
+            currentExercise = .diagonalHL
+        case 5:
+            currentExercise = .diagonalLH
+        case 6:
+            currentExercise = .squareClockwise
+        case 7:
+            currentExercise = .squareCounterClockwise
+        case 8:
+            currentExercise = .circleClockwise
+        case 9:
+            currentExercise = .circleConterClockwise
+        case 10:
+            currentExercise = .slide
+        case 11:
+            currentExercise = .snake
+        default:
+            currentExercise = .distance
+        }
+    }
+    
+    private func getPropertiesOfExercise(withId: Bool, withCurrentExercise: Bool) {
+        counter = currentExercise.exerciseData.duration
+        titleOfExercise = currentExercise.exerciseData.name
+        if withId {
+            idOfExercise = currentExercise.exerciseData.id
+        }
+        if withCurrentExercise {
+            currentExercise = .blinking
+        }
+    }
 }
-
