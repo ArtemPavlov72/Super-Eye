@@ -2,7 +2,7 @@
 //  ExercisesView.swift
 //  Super Eye
 //
-//  Created by iMac on 03.12.2021.
+//  Created by Artem Pavlov on 03.12.2021.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import SwiftUI
 struct ExercisesView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject private var timer = ExerciseChanger()
+    @StateObject private var exercise = ExerciseChanger()
     @State private var animation = false
     @State private var AboutExercises = false
     @State private var displayedExerciseText = ""
@@ -51,13 +51,12 @@ struct ExercisesView: View {
                 Spacer()
                 
                 Button(action: {buttonAction()}, label: {
-                    Image(systemName: timer.buttonImage) //меняем картинку кнопки
+                    Image(systemName: exercise.buttonImage) //меняем картинку кнопки
                         .foregroundColor(Color.mint.opacity(0.8))
                         .scaleEffect(1.4)
                         .padding()
                 }
                 )
-                
                     .toolbar {
                         ToolbarItem {
                             HStack {
@@ -79,23 +78,24 @@ struct ExercisesView: View {
         }
     }
     private func buttonAction() {
-        timer.buttonPlayDidTapped()
+        exercise.buttonPlayDidTapped()
+        
         withAnimation {
             animation.toggle()
         }
     }
 
     private func checkExerciseTextDidLoad() -> String {
-        if timer.timer != nil {
-            return timer.titleOfExercise
+        if exercise.timer != nil {
+            return exercise.titleOfExercise
         } else {
             return "Нажмите PLAY чтобы начать упражнения"
         }
     }
     
     private func checkExerciseCountDidLoad() -> String {
-        if timer.timer != nil {
-            return "\(timer.counter)"
+        if exercise.timer != nil {
+            return "\(exercise.counter)"
         } else {
             return ""
         }
