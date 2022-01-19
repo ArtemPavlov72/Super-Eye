@@ -2,7 +2,7 @@
 //  Exercise.swift
 //  Super Eye
 //
-//  Created by iMac on 18.12.2021.
+//  Created by Artem Pavlov on 18.12.2021.
 //
 
 struct Exercise: Identifiable {
@@ -25,23 +25,6 @@ struct Exercise: Identifiable {
             exercises.append(exercise)
         }
         return exercises
-    }
-}
-
-enum TimerDuration {
-    case longExercise,
-         mediumExercise,
-         shortExercise
-    
-    var durationValue: Int {
-        switch self {
-        case .longExercise:
-            return 3
-        case .mediumExercise:
-            return 1
-        case .shortExercise:
-            return 2
-        }
     }
 }
 
@@ -153,6 +136,23 @@ enum TypeOfExercise: CaseIterable {
                 description: "Выставляем палец перед носом на расстоянии примерно 10 см, поочередно смотрим на палец перед глазами, затем на любой дальний объект, например здание или шкаф",
                 duration: TimerDuration.longExercise.durationValue
             )
+        }
+    }
+    
+    enum TimerDuration {
+        case longExercise,
+             mediumExercise,
+             shortExercise
+        
+        var durationValue: Int {
+            switch self {
+            case .longExercise:
+                return 3
+            case .mediumExercise:
+                return 1
+            case .shortExercise:
+                return 2
+            }
         }
     }
 }
